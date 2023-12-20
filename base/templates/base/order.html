@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div>
+     <form method = "POST" action="{%url 'order'%}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <!-- <img src="data:image/png;base64,{{ form.instance.qr_code }}" alt="QR Code"> -->
+        <input type = "submit" value="Submit"/>
+     </form>
+</div>
+
+{% endblock content%}

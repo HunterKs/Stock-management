@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    h1{
+      color: orange;
+    }
+    html{
+      /* C:\Users\kusha\OneDrive\Desktop\Shop\Shop\base\images\shop.jpg */
+      /* https://lh3.googleusercontent.com/p/AF1QipOSpj6SxMQhrLuEHjhGkijUzfd9snFosnVOv6gU=w1080-h608-p-no-v0 */
+      background-image: url('https://i.ytimg.com/vi/-Rj6jTqEiNc/maxresdefault.jpg');
+      /* background-image: url('C:\\Users\\kusha\\OneDrive\\Desktop\\Shop\\Shop\\base\\images\\shop.jpg'); */
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* backdrop-filter: blur(5px); */
+    }
+    body{
+      /* C:\Users\kusha\OneDrive\Desktop\Shop\Shop\base\images\shop.jpg */
+      /* https://lh3.googleusercontent.com/p/AF1QipOSpj6SxMQhrLuEHjhGkijUzfd9snFosnVOv6gU=w1080-h608-p-no-v0 */
+      background-image: url('https://i.ytimg.com/vi/-Rj6jTqEiNc/maxresdefault.jpg');
+      /* background-image: url('C:\\Users\\kusha\\OneDrive\\Desktop\\Shop\\Shop\\base\\images\\shop.jpg'); */
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* backdrop-filter: blur(5px); */
+    }
+  </style>
+
+<div>
+    <h1>Select what type of status you want to check</h1>
+    <h2><a href="{% url 'tyre_status' %}">Tyre</a></h2>
+    <h3><a href="{% url 'customer_profile'%}">Customer</a></h3>
+    <h4><a href="{% url 'order_status' %}">Orders</a></h4>
+    <!-- <form action="">
+        {% csrf_token %}
+        <input type = "submit" value="Submit"/>
+    </form> -->
+</div>
+
+{% endblock content%}

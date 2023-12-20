@@ -1,0 +1,45 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>{{customer.name}}</h1>
+
+<div class="home-container">
+    <table class="table">
+        <thead>
+          <tr>
+            
+            <th scope="col">Order id</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Tyre</th>
+            <th scope="col">Length</th>
+            <th scope="col">Width</th>
+            <th scope="col">Depth</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in order %}  
+          <tr>  
+            <td>{{order.order_id}}</td>
+            <td>{{order.customer_name}}</td>
+            <td>{{order.customer_mobile_number}}</td>
+            <td>{{order.tyre}}</td>
+            <td>{{order.size_length}}</td>
+            <td>{{order.size_width}}</td>
+            <td>{{order.size_depth}}</td>
+            <td>{{order.price}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.Amount}}</td>
+            <td>{{order.created}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock content%}

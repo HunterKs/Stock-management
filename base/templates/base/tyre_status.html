@@ -1,0 +1,51 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+{% include 'navbar_tyre.html'%}
+<div class="col d-grid gap-2 col-6 mx-auto ">
+    
+  <a href="{% url 'tyre_new' %}" button class="btn btn-primary" type="button">Add New</a>
+  <!-- <a href="{% url 'update' %}" button class="btn btn-primary" type="button">Update Info</a>
+  <a href="{% url 'check_status' %}" button class="btn btn-primary" type="button">Check Status</a>
+  <a href="{% url 'order' %}"button class="btn btn-primary" type="button">Order</a> -->
+</div>
+
+
+
+<div class="home-container">
+    <table class="table">
+        <thead>
+          <tr>
+            
+            <th scope="col">Name</th>
+            <th scope="col">Company</th>
+            <th scope="col">Size</th>
+            <!-- <th scope="col">Width</th>
+            <th scope="col">Depth</th> -->
+            <th scope="col">Price</th>
+            <th scope="col">Total</th>
+            <th scope="col">sold</th>
+            <th scope="col">In Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for tyre in tyre %}  
+          <tr>  
+            <td>{{tyre.name}}</td>
+            <td>{{tyre.company}}</td>
+            <td>{{tyre.size}}</td>
+            <!-- <td>{{tyre.size_width}}</td>
+            <td>{{tyre.size_depth}}</td> -->
+            <td>{{tyre.price}}</td>
+            <td>{{tyre.Quantity_total}}</td>
+            <td>{{tyre.Quantity_sold}}</td>
+            <td>{{tyre.instock}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock content%}
