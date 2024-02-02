@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+{% include 'navbar_tyre.html'%}
+
+<div class="home-container">
+    <table class="table">
+        <thead>
+          <tr>
+            
+            <th scope="col">Order id</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Item No.</th>
+            <th scope="col">Tyre</th>
+            <th scope="col">Size</th>
+            <!-- <th scope="col">Width</th>
+            <th scope="col">Depth</th> -->
+            <!-- <th scope="col">Qr</th> -->
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in order %}  
+          <tr>  
+            <td>{{order.order_id}}</td>
+            <td>{{order.customer_name}}</td>
+            <td>{{order.customer_mobile_number}}</td>
+            <td>{{order.Items}}</td>
+            <td>{{order.tyre}}</td>
+            <td>{{order.size}}</td>
+            <!-- <td>{{order.size_width}}</td>
+            <td>{{order.size_depth}}</td> -->
+            <!-- <td>{{order.qr_code}}</td> -->
+            <td>{{order.initial_price}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.price}}</td>
+            <td>{{order.created}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock content%}

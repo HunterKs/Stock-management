@@ -1,0 +1,52 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+{% include 'navbar_tyre.html'%}
+
+<div class="container mt-4">
+  <div class="row">
+      <div class="col-md-3">
+          <h2>{{tyre.name}}</h2>
+          <p>Total Bought: {{ tyre.Quantity_total }}</p>
+          <p>In Stock: {{ tyre.instock }}</p>
+          <p>Sold: {{ tyre.Quantity_sold }}</p>
+          <p>Buy Price: {{ tyre.initial_price }}</p>
+          <!-- <p>Total Amount: {{ total_amount }}</p>
+          <p>Total Profit: {{ total_profit }}</p> -->
+      </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12">
+        <h2>Order Bills</h2>
+        <p>Total Price Invested: {{total_price_invested|default:"Not Available" }}</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Customer</th>
+                    <th>Quantity </th>
+                    <!-- <th>Quantity Sold</th> -->
+                    <th>price</th>
+                    <th>Amount</th>
+                    <!-- <th>Profit</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.created|date:"d-m-Y" }}</td>
+                        <td>{{ order.customer_name }}</td>
+                        <td>{{ order.quantity }}</td>
+                        <!-- <td>{{ order.quantity_sold }}</td> -->
+                        <td>{{ order.initial_price }}</td>
+                        <td>{{ order.price }}</td>
+                        <!-- <td>{{ order.profit }}</td> -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+{% endblock content%}

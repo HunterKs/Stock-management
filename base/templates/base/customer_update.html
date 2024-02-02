@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+
+{% block content %}
+
+{% include 'navbar_tyre.html'%}
+
+<div class="home-container">
+    <table class="table">
+        <thead>
+          <tr>
+            
+            <th scope="col">Name</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Email</th>
+            <th scope="col">Orders</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% for customer in customer %}  
+          <tr>  
+            <td><a href = "{% url 'customer_edit' customer.id %}">{{customer.name}}</a></td>
+            <td>{{customer.mobile_number}}</td>
+            <td>{{customer.Email}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock content%}

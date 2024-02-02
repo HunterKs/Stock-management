@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container-fluid"> 
+   <div class="row">
+ <div class="col d-flex justify-content-center">
+ <h1>Shivangi Bearing House</h1>
+ </div>
+</div>
+
+
+
+ <style>
+    h1{
+      color: orange;
+    }
+    html{
+      /* C:\Users\kusha\OneDrive\Desktop\Shop\Shop\base\images\shop.jpg */
+      /* https://lh3.googleusercontent.com/p/AF1QipOSpj6SxMQhrLuEHjhGkijUzfd9snFosnVOv6gU=w1080-h608-p-no-v0 */
+      background-image: url('https://i.ytimg.com/vi/-Rj6jTqEiNc/maxresdefault.jpg');
+      /* background-image: url('C:\\Users\\kusha\\OneDrive\\Desktop\\Shop\\Shop\\base\\images\\shop.jpg'); */
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* backdrop-filter: blur(5px); */
+    }
+    body{
+      /* C:\Users\kusha\OneDrive\Desktop\Shop\Shop\base\images\shop.jpg */
+      /* https://lh3.googleusercontent.com/p/AF1QipOSpj6SxMQhrLuEHjhGkijUzfd9snFosnVOv6gU=w1080-h608-p-no-v0 */
+      background-image: url('https://i.ytimg.com/vi/-Rj6jTqEiNc/maxresdefault.jpg');
+      /* background-image: url('C:\\Users\\kusha\\OneDrive\\Desktop\\Shop\\Shop\\base\\images\\shop.jpg'); */
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* backdrop-filter: blur(5px); */
+    }
+  </style>
+ 
+  <div class="row py-100">
+    <div class="col d-grid gap-2 col-6 mx-auto ">
+    
+        
+        {% if request.user.is_authenticated %}
+          {% if request.user.userprofile.is_owner %}
+          <a href="{% url 'add_new' %}" button class="btn btn-primary" type="button">Add New</a>
+          <a href="{% url 'update' %}" button class="btn btn-primary" type="button">Update Info</a>
+          <a href="{% url 'check_status' %}" button class="btn btn-primary" type="button">Check Status</a>
+         
+          {% else %}
+           <a href="{% url 'tyre_status' %}" button class="btn btn-primary" type="button">Check Status</a>
+           {% endif %}
+        <a href="{% url 'order' %}"button class="btn btn-primary" type="button">Order</a>
+        {% endif %}
+    </div>
+  
+    <div>
+        {%for room in rooms%}
+            <div>
+                <h5>{{room.id}}--<a href="{% url 'room' room.id %}">{{room.name}}</a></h5>
+            </div>
+        {%endfor%}
+    </div>
+
+
+
+ </div>
+</div>
+{% endblock content%}
